@@ -5,7 +5,7 @@ Feature: Create and delete technologies API tests
   Scenario Outline: Create an technology with valid data through an HTTP request
   Description: Robot wants to create a new technology through an HTTP request - method: POST. Then, using method GET,
   robot will check if technology is created.
-  Expected result: GET technology returns - Status code 200, and request return created technology.
+  Expected result: GET technology request  returns: Status code 200, and created technology object.
 
     Given Robot navigates to the login page
     When Robot create technology with name: <technologyName>, and expect status code <statusCode>
@@ -21,8 +21,8 @@ Feature: Create and delete technologies API tests
   Scenario Outline: Delete an existing technology through an HTTP request
   Description: Robot wants to delete a existing technology through an HTTP request - method: Delete. Then, using method GET,
   robot will check if technology is deleted.
-  Expected result: GET technology returns - Status code 200, and request return created technology.
-
+  Expected result: Delete technology returns - Status code 200
+  
     Given Robot navigates to the login page
     And Robot create technology with name: <technologyName>, and expect status code <statusCode>
     When Robot delete technology with name: <technologyName> through an HTTP request, and expect status code <statusCode>
